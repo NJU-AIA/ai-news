@@ -9,3 +9,6 @@ editorial_batches/
 .env.*
 *.sqlite*
 *.db
+
+# Legacy duplicate of docs/EDITORIAL_POLICY.md kept on production
+/EDITORIAL_POLICY.md
