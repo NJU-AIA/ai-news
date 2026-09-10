@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.backup*
+*.bak
+.local-shell-mcp/
+editorial_batches/
+.env
+.env.*
+*.sqlite*
+*.db

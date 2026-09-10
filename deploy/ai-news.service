@@ -1,0 +1,24 @@
+[Unit]
+Description=NJU AIA AI News web service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ai-news
+Group=ai-news
+WorkingDirectory=/opt/ai-news
+Environment=PYTHONPATH=/opt/ai-news
+Environment=AI_NEWS_BASE_DIR=/opt/ai-news
+Environment=AI_NEWS_DATA_DIR=/var/lib/ai-news
+ExecStart=/opt/ai-news/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8766 --proxy-headers
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ai-news
+
+[Install]
+WantedBy=multi-user.target

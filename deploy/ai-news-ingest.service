@@ -1,0 +1,19 @@
+[Unit]
+Description=Fetch NJU AIA AI news sources
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ai-news
+Group=ai-news
+WorkingDirectory=/opt/ai-news
+Environment=PYTHONPATH=/opt/ai-news
+Environment=AI_NEWS_BASE_DIR=/opt/ai-news
+Environment=AI_NEWS_DATA_DIR=/var/lib/ai-news
+ExecStart=/opt/ai-news/.venv/bin/python /opt/ai-news/scripts/ingest_once.py
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ai-news

@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily NJU AIA AI news ingestion
+
+[Timer]
+OnCalendar=*-*-* 08:15:00 Asia/Shanghai
+RandomizedDelaySec=300
+Persistent=true
+Unit=ai-news-ingest.service
+
+[Install]
+WantedBy=timers.target
